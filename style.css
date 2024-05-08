@@ -1,0 +1,720 @@
+@import url('https://fonts.googleapis.com/css2?family=Zeyada&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&family=Rubik+Mono+One&family=Zeyada&display=swap');
+
+*{
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+body{
+   scroll-behavior: smooth;
+   background-color: rgb(26, 24, 23);
+   font-family: "Alegreya Sans SC", sans-serif;
+  font-weight: 400;
+
+}
+
+
+
+
+
+
+
+/* header section */
+
+#header{
+   position: fixed;
+   z-index: 1000;
+   left: 0;
+   top: 0;
+   width: 100vw;
+   height: auto;
+
+}
+
+#header .header{
+   min-height: 8vh;
+   background-color:rgba(31,30, 30, 0.24);
+   transition: .3s ease background-color;
+}
+#header .new-bar{
+   display: flex;
+   align-items: center;
+   justify-content:space-between;
+   width: 100%;
+   height: 100%;
+   max-width: 1300px;
+   padding: 0 10px;
+
+}
+#header .new-bar .brand a{
+   color: white;
+   text-decoration: none;
+   font-size: 1.5rem;
+   font-weight: bolder;
+
+}
+#header .nav-list ul{
+   list-style: none;
+   position: absolute;
+   background-color: rgb(31,30,30);
+   width: 100vw;
+   height: 100vh;
+   left: 100%;
+   top: 0;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   z-index: 1;
+   overflow: hidden;
+   transition: .3s ease left;
+
+}
+#header .nav-list ul.active{
+   left: 0;
+}
+#header .nav-list ul a{
+   font-size: 2.5rem;
+   font-weight: 500;
+   letter-spacing: .2rem;
+   text-decoration: none;
+   color: white;
+   text-transform: uppercase;
+   padding: 20px;
+   display: block;
+
+}
+
+#header .nav-list ul a::after{
+   content: attr(data-after);
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%) scale(0);
+   color: rgba(240, 248, 255,0.021);
+   font-size: 13rem;
+   letter-spacing: 50px;
+   z-index: -1;
+   transition: .3s ease letter-spacing;
+}
+#header .nav-list ul li:hover a::after{
+   transform: translate(-50%,-50%) scale(1);
+   letter-spacing: initial;
+   
+}
+#header .nav-list ul li:hover a{
+   color:green;
+}
+
+#header .hamburger{
+   height: 60px;
+   width: 60px;
+   display: inline-block;
+   border: 3px solid white;
+   border-radius: 50%;
+   position: relative;
+   right: 0px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+   z-index: 100;
+   transform: scale(.6);
+   margin-right: 20px;
+   
+}
+#header .hamburger::after{
+   position: absolute;
+   content: '';
+   height: 100%;
+   width: 100%;
+   border-radius: 50%;
+   border: 3px solid white;
+   animation:hamburger-plus  2s ease infinite ;
+}
+
+@keyframes hamburger-plus {
+   50%{
+      opacity: 1;
+      transform: scale(1);
+
+   }
+   100%{
+      opacity: 0;
+      transform: scale(1.3);
+
+   }
+}
+#header .hamburger .bar{
+   height: 2px;
+   width: 30px;
+   position: relative;
+   background-color: white;
+   z-index: -1;
+}
+#header .hamburger .bar::after,
+#header .hamburger .bar::before{
+   content: '';
+   position: absolute;
+   height: 100%;
+   width: 100%;
+   left: 0;
+   background-color: rgb(211, 26, 26);
+   transition: .3s ease;
+   transition-property: top, bottom;
+
+}
+#header .hamburger .bar::after{
+   top: 8px;
+}
+#header .hamburger .bar::before{
+   bottom: 8px;
+}
+#header .hamburger.active .bar::before{
+   bottom: 0;
+} 
+#header .hamburger.active .bar::after{
+   top: 0;
+}
+
+@media screen and (min-width: 1028px) {
+
+   #header .hamburger{
+      display: none;
+
+   }
+   #header .nav-list ul{
+      position: inherit;
+      display: block;
+      height: auto;
+      width: fit-content; 
+      background-color: transparent; 
+   }
+   #header .nav-list ul li{
+      display: inline-block;
+      height: 40px;
+      /* width: 990px; */
+      /* border: 2px solid wheat; */
+      text-align: center;
+   }
+   #header .nav-list ul li:hover{
+      border-bottom: 2px solid green;
+   }
+   #header .nav-list ul li a{
+      font-size: 1rem;
+      text-align: center;
+      position: relative;
+      bottom: 10px;
+   }
+   #header .nav-list ul a::after{
+      display: none;
+
+   }
+   
+}
+
+
+
+
+/* header section end */
+
+
+/* ***************** */
+
+/* hero section  */
+
+#hero{
+width: 100%;
+height: 100vh;
+position: relative;
+overflow: hidden;
+z-index: 1;
+background-image: url("./main_jeyamurugan.jpg");
+background-size: cover;
+background-repeat: no-repeat;
+
+}
+#hero::after{
+   content:'';
+   position: absolute;
+   left: 0;
+   right: 0;
+   height: 100%;
+   width: 100%;
+   background-color: black;
+   opacity: .7;
+   z-index: -1;
+}
+
+#hero .container{
+   width: 100%;
+   height: 500px;
+   position: absolute;
+   bottom: 0;
+   background-image: linear-gradient(to bottom , rgba(0, 0, 0, 0),rgb(26, 24, 23));
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   color: white;
+   font-size: 2rem;
+   /* background-color: aqua; */
+}
+
+#hero .container h1:nth-child(1) span{
+   display: inline-block;
+   width: 25px;
+   height: 4px;
+   background-color: rgb(255, 255, 255);
+   position: relative;
+   bottom: 14px;
+   right: 10px;
+}
+#hero .container h1:nth-child(3){
+   font-size: 1.8rem;
+
+}
+#hero .container h1:nth-child(3)::first-letter{
+   color: coral;
+   font-size: 2rem;
+}
+
+#hero .container p:nth-child(4){
+   font-size: .8rem;
+   text-align: center;
+   margin-top: 20px;
+   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: capitalize;
+
+}
+
+
+
+#hero .container .about{
+   padding: 5px 15px;
+   border: 2px solid wheat;
+   font-size: 1rem;
+   position: relative;
+   left: -90px;
+   top: 60px;
+   transition: .2s ease;
+   border-radius: 80px;
+   background-color: chocolate;
+   text-transform: uppercase;
+}
+#hero .container .about:hover{
+   background-color: rgb(255, 91, 32);
+
+}
+#hero .container .resume{
+   padding: 5px 15px;
+   border: 2px solid wheat;
+   font-size: 1rem;
+   position: relative;
+   left: 90px;
+   top: 28px;
+   transition: .2s ease;
+   border-radius: 80px;
+   background-color: chocolate;
+   text-transform: uppercase;
+   cursor: pointer;
+   
+}
+#hero .container .resume a{
+   text-decoration: none;
+   color: white;
+}
+#hero .container .resume:hover{
+   background-color: rgb(255, 91, 32);
+
+}
+
+
+
+/* ........Lab Screen....... ..*/
+
+@media screen and (min-width: 1028px) {
+
+   #hero {
+      background-size:cover;
+      background-position-y: 40%; 
+      
+   }
+  
+  
+
+   #hero .container{
+      position: absolute;
+      left: 50%;
+      top: 0;
+      background: none;
+      width: 50%;
+      height: 100vh;
+      
+   }
+   #hero::after{
+      content: '';
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      right: 0;
+      background: none;
+      opacity: 1;
+      
+      background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0),rgb(26, 24, 23));
+   }
+   
+      
+   
+   
+   
+}
+
+
+/* hero section  end */
+
+
+/* ***************** */
+
+/* About sectio  */
+
+#About{
+
+width: 100%;
+height: 60vh;
+position: relative;
+overflow: hidden;
+z-index: 1;
+color: white;
+/* margin: 40px; */
+
+}
+#About .sub-about{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   text-align: justify;
+}
+
+#About .sub-about h1,.image,.content{
+   margin: 20px;
+
+}
+#About .sub-about h1{
+   color: green;
+   font-size: 2rem;
+}
+#About .sub-about .image{
+   border: 2px solid white;
+   width: 100px;
+   height: 100px;
+}
+#About .sub-about .content{
+   text-align: justify;
+   text-transform: capitalize;
+
+}
+/* @media screen and (min-device-width: 768px) 
+    and (max-device-width: 1024px) {
+
+    } */
+
+@media screen and (min-width: 600px){
+   #About .sub-about .image{
+      border: 2px solid white;
+      width: 150px;
+      height: 150px;
+   }
+
+}
+@media screen  and (min-width:650px){
+   #About .sub-about .image{
+      position: absolute;
+      top: 40px;
+      left: 40px;
+
+
+   }
+   #About .sub-about .content{
+      position: absolute;
+      top: 50px;
+      left:210px ;
+      width: 400px;
+      height: 400px;
+      font-size: 1rem;
+      margin: 20px;
+
+      text-align: justify;
+   
+   
+   }
+
+   
+}
+@media screen and (min-width: 1024px){
+   #About .sub-about .content{
+      position: absolute;
+      top: 70px;
+      left:350px ;
+      font-size: 1rem;
+      text-align: justify;
+      width: 600px;
+   }
+   #About .sub-about .image{
+      position: absolute;
+      top: 40px;
+      left: 150px;
+
+
+   }
+   #About .sub-about h1{
+      position: absolute;
+      top: 30px;
+   }
+}
+
+
+/* About sectio end */
+
+/* ***************** */
+
+/* 
+*project section
+*/
+
+
+#project{
+   width: 100%;
+height: auto;
+position: relative;
+overflow: hidden;
+z-index: 1;
+
+padding: 20px;
+
+color: white;
+
+
+}
+
+#project .pcon{
+   width: 100%;
+   height: auto;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+   /* align-items: center; */
+   margin-bottom: 20px;
+   margin-top: 20px;
+}
+#project .project{
+   
+   height: auto;
+   width: 400px;
+   margin: 10px;
+   background-color: rgb(82, 82, 80);
+   position:relative;
+   top: 60px;
+   text-align: center;
+
+}
+
+#project .project p{
+   display:-webkit-box;
+   -webkit-line-clamp: 4;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+}
+#project .project button{
+   padding: 10px 30px 10px 30px;
+   margin: 20px;
+   transition: .2s ease background-color;
+   border-radius: 20px;
+   border: none;
+}
+
+#project .project button:hover ,button:active{
+   background-color: coral;
+   box-shadow: none;
+   border: none;
+}
+#project .project h1{
+   color: coral;
+   margin: 20px;
+   
+}
+#project >h1{
+   /* position: absolute; */
+   text-align: center;
+   color:green;
+   font-size: 2rem;
+   text-transform: uppercase;
+   position: relative;
+   top: 30px;
+}
+
+/* prosect section end */
+
+#eduction {
+   width: 100%;
+   height: auto;
+   overflow: hidden;
+   position: relative;
+   z-index: 1;
+   margin-top: 20px;
+
+}
+#eduction> h1{
+   text-align: center;
+   color: green;
+   font-size: 2rem;
+   position: relative;
+   top: 40px;
+}
+#eduction .educon{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+   margin-top: 40px;
+   margin-bottom: 40px;
+   
+
+}
+#eduction .educon .edu{
+
+   width: 220px;
+   height: 100px;
+   background-color: rgb(82, 82, 80);
+   text-align: center;
+   padding: 20px;
+   margin: 20px;
+}
+#eduction .educon .edu h1{
+   color: coral;
+}
+
+
+
+/* Eduction section end  */
+
+
+/* 
+*
+*Skils Section
+*
+*/
+
+#skills{
+
+   width: 100%;
+   height: auto;
+   /* background-color: aquamarine; */
+   overflow: hidden;
+   position: relative;
+   margin-top: 30px;
+   color: white;
+}
+#skills >h1{
+   font-size: 2rem;
+   color: green;
+   text-align: center;
+   position: relative;
+   top: 50px;
+
+}
+#skills  .container{
+   /* background-color: black; */
+   width: 100%;
+   height: auto;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+   /* align-items: center; */
+   margin-bottom: 20px;
+   margin-top: 20px;
+
+}
+#skills  .container .sk{
+   height: 200px;
+   width: 400px;
+   margin: 10px;
+   background-color: rgb(82, 82, 80);
+   position:relative;
+   top: 60px;
+   text-align: center;
+   padding: 10px;
+   margin-top: 20px;
+   margin-bottom: 20px;
+}
+#skills  .container .sk  h4{
+   color: coral;
+   font-size: 1rem;
+}
+#skills  .container .sk p{
+   display:-webkit-box;
+   -webkit-line-clamp: 4;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   text-align:start;
+}
+#skills  .container .sk i{
+   color: rgb(51, 255, 0); 
+   font-size: 3rem;
+   
+}
+#skills  .container .load {
+
+   display: flex;
+   align-items: center;  
+   justify-content: center; 
+  
+   
+}
+#skills  .container .load  i{
+   font-size: 6rem;
+}
+
+
+
+
+/* 
+*contect
+
+ */
+
+
+
+#detiles{
+   width: 100%;
+   height: auto;
+   background-color: rgb(82, 82, 80);
+   position: relative;
+   margin-top: 20px;
+   padding-bottom: 20px;
+ }
+
+#detiles .contect{
+   text-align: center;
+
+}
+
+#detiles .contect h6{
+   font-size: 2rem;
+   color: coral ;
+}
+#detiles .contect p{
+   font-size: .5rem;
+   color: white;
+}
+#detiles .contect a{
+   color: white;
+   padding: 10px;
+}
+#detiles .contect a i:hover{
+   color: coral;
+}
