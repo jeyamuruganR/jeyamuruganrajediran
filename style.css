@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Zeyada&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&family=Rubik+Mono+One&family=Zeyada&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 *{
    padding: 0;
@@ -50,13 +51,16 @@ body{
 #header .new-bar .brand a{
    color: white;
    text-decoration: none;
-   font-size: 1.5rem;
-   font-weight: bolder;
+   font-family: "Kanit", sans-serif;
+  font-weight: 900;
+  font-style:normal;
+  text-transform: uppercase;
+
 
 }
 #header .nav-list ul{
    list-style: none;
-   position: absolute;
+   position: absolute; 
    background-color: rgb(31,30,30);
    width: 100vw;
    height: 100vh;
@@ -74,9 +78,10 @@ body{
 #header .nav-list ul.active{
    left: 0;
 }
-#header .nav-list ul a{
-   font-size: 2.5rem;
-   font-weight: 500;
+#header .nav-list ul li a{
+   font-family: "Kanit", sans-serif;
+  font-weight: 900;
+  font-style:normal;
    letter-spacing: .2rem;
    text-decoration: none;
    color: white;
@@ -84,6 +89,9 @@ body{
    padding: 20px;
    display: block;
 
+}
+#header .nav-list ul li a i{
+   padding-right: 10px;
 }
 
 #header .nav-list ul a::after{
@@ -103,9 +111,7 @@ body{
    letter-spacing: initial;
    
 }
-#header .nav-list ul li:hover a{
-   color:green;
-}
+
 
 #header .hamburger{
    height: 60px;
@@ -151,7 +157,7 @@ body{
    width: 30px;
    position: relative;
    background-color: white;
-   z-index: -1;
+   z-index: 3;
 }
 #header .hamburger .bar::after,
 #header .hamburger .bar::before{
@@ -179,38 +185,41 @@ body{
 }
 
 @media screen and (min-width: 1028px) {
-
-   #header .hamburger{
-      display: none;
-
-   }
+   
    #header .nav-list ul{
-      position: inherit;
-      display: block;
-      height: auto;
-      width: fit-content; 
-      background-color: transparent; 
+      list-style: none;
+      position: absolute; 
+      background-color: transparent;
+      width: 80%;
+      height: 60px;
+      left: 20%;
+      top: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+      overflow: hidden;
+      font-size: .8rem;
    }
-   #header .nav-list ul li{
-      display: inline-block;
-      height: 40px;
-      /* width: 990px; */
-      /* border: 2px solid wheat; */
-      text-align: center;
-   }
-   #header .nav-list ul li:hover{
-      border-bottom: 2px solid green;
+   #header .nav-list ul.active{
+      left: 20%;
    }
    #header .nav-list ul li a{
+      color:rgba(255, 255, 255, 0.911);
+   }
+   #header .nav-list ul li a:hover{
+      color: rgb(3, 112, 3);
+      /* letter-spacing: 4px; */
       font-size: 1rem;
-      text-align: center;
-      position: relative;
-      bottom: 10px;
+   }
+   .header .new-bar .nav-list .hamburger{
+      visibility: hidden;
    }
    #header .nav-list ul a::after{
-      display: none;
-
+      content: "";
    }
+
    
 }
 
@@ -234,6 +243,7 @@ background-image: url("./main_jeyamurugan.jpg");
 background-size: cover;
 background-repeat: no-repeat;
 
+
 }
 #hero::after{
    content:'';
@@ -242,9 +252,9 @@ background-repeat: no-repeat;
    right: 0;
    height: 100%;
    width: 100%;
-   background-color: black;
+   background-color: rgb(0, 0, 0);
    opacity: .7;
-   z-index: -1;
+   z-index: 2;
 }
 
 #hero .container{
@@ -254,12 +264,14 @@ background-repeat: no-repeat;
    bottom: 0;
    background-image: linear-gradient(to bottom , rgba(0, 0, 0, 0),rgb(26, 24, 23));
    display: flex;
+   flex-wrap: wrap;
    justify-content: center;
    align-items: center;
    flex-direction: column;
    color: white;
    font-size: 2rem;
-   /* background-color: aqua; */
+   z-index: 3;
+   
 }
 
 #hero .container h1:nth-child(1) span{
@@ -282,12 +294,16 @@ background-repeat: no-repeat;
 
 #hero .container p:nth-child(4){
    font-size: .8rem;
-   text-align: center;
+   text-align:justify;
    margin-top: 20px;
    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: 400;
   font-style: normal;
   text-transform: capitalize;
+  line-height: 2.5cap;
+  padding: 10px;
+  
+  
 
 }
 
@@ -363,9 +379,12 @@ background-repeat: no-repeat;
       left: 0;
       right: 0;
       background: none;
-      opacity: 1;
-      
+      opacity: 2;
+      z-index: 2;
       background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0),rgb(26, 24, 23));
+   }
+   #hero .container p:nth-child(4){
+      width: 80%;
    }
    
       
@@ -385,98 +404,41 @@ background-repeat: no-repeat;
 #About{
 
 width: 100%;
-height: 60vh;
+height:auto;
 position: relative;
 overflow: hidden;
 z-index: 1;
 color: white;
+
 /* margin: 40px; */
+/* border: 2px solid white; */
 
 }
-#About .sub-about{
+#About .content{
+  
    display: flex;
    justify-content: center;
    align-items: center;
-   flex-direction: column;
-   text-align: justify;
-}
-
-#About .sub-about h1,.image,.content{
-   margin: 20px;
-
-}
-#About .sub-about h1{
-   color: green;
-   font-size: 2rem;
-}
-#About .sub-about .image{
-   border: 2px solid white;
-   width: 100px;
-   height: 100px;
-}
-#About .sub-about .content{
-   text-align: justify;
+   flex-wrap: wrap;
    text-transform: capitalize;
-
+   font-family: Arial, Helvetica, sans-serif;
+   margin-top: 70px;
+   padding: 10px;
+   text-align: center;
 }
-/* @media screen and (min-device-width: 768px) 
-    and (max-device-width: 1024px) {
 
-    } */
+#About .content p{
 
-@media screen and (min-width: 600px){
-   #About .sub-about .image{
-      border: 2px solid white;
-      width: 150px;
-      height: 150px;
-   }
-
-}
-@media screen  and (min-width:650px){
-   #About .sub-about .image{
-      position: absolute;
-      top: 40px;
-      left: 40px;
-
-
-   }
-   #About .sub-about .content{
-      position: absolute;
-      top: 50px;
-      left:210px ;
-      width: 400px;
-      height: 400px;
-      font-size: 1rem;
-      margin: 20px;
-
-      text-align: justify;
-   
-   
-   }
-
+   text-align:justify;
+   line-height: 40px;
    
 }
-@media screen and (min-width: 1024px){
-   #About .sub-about .content{
-      position: absolute;
-      top: 70px;
-      left:350px ;
-      font-size: 1rem;
-      text-align: justify;
-      width: 600px;
-   }
-   #About .sub-about .image{
-      position: absolute;
-      top: 40px;
-      left: 150px;
+#About .content h1 {
 
-
-   }
-   #About .sub-about h1{
-      position: absolute;
-      top: 30px;
-   }
+   text-transform:uppercase;
 }
+
+
 
 
 /* About sectio end */
@@ -489,16 +451,15 @@ color: white;
 
 
 #project{
-   width: 100%;
-height: auto;
+width: 100%;
+/* height: vh; */
 position: relative;
 overflow: hidden;
 z-index: 1;
-
-padding: 20px;
-
-color: white;
-
+background-color: rgb(255, 255, 255);
+margin-top: 20px;
+margin-bottom: 20px;
+padding-bottom: 100px;
 
 }
 
@@ -507,29 +468,36 @@ color: white;
    height: auto;
    display: flex;
    flex-wrap: wrap;
-   justify-content: space-around;
-   /* align-items: center; */
-   margin-bottom: 20px;
-   margin-top: 20px;
+   align-items: center;
+   justify-content:space-around;
+
 }
 #project .project{
    
-   height: auto;
+   height: 230px;
    width: 400px;
    margin: 10px;
    background-color: rgb(82, 82, 80);
+   
    position:relative;
    top: 60px;
    text-align: center;
+   box-shadow: 10px 7px 15px black;
+   border-radius: 10px;
+   border: 3px solid coral;
 
+}
+#project .pro3{
+   background-image: url(./fl.png);
+   background-size: contain
 }
 
 #project .project p{
-   display:-webkit-box;
-   -webkit-line-clamp: 4;
-   -webkit-box-orient: vertical;
-   overflow: hidden;
+   color: white;
+   visibility: hidden;
+ 
 }
+
 #project .project button{
    padding: 10px 30px 10px 30px;
    margin: 20px;
@@ -546,16 +514,18 @@ color: white;
 #project .project h1{
    color: coral;
    margin: 20px;
+   background-color: rgba(132, 130, 133, 0.267);
    
 }
 #project >h1{
    /* position: absolute; */
    text-align: center;
-   color:green;
+   color:rgb(0, 0, 0);
    font-size: 2rem;
    text-transform: uppercase;
    position: relative;
-   top: 30px;
+   top: 60px;
+   /* background-color: rgba(153, 0, 255, 0.253); */
 }
 
 /* prosect section end */
@@ -567,6 +537,9 @@ color: white;
    position: relative;
    z-index: 1;
    margin-top: 20px;
+   padding-bottom: 100px;
+   /* background-color: rgb(103, 100, 121); */
+   
 
 }
 #eduction> h1{
@@ -574,11 +547,12 @@ color: white;
    color: green;
    font-size: 2rem;
    position: relative;
-   top: 40px;
+   top: 70px;
 }
 #eduction .educon{
    display: flex;
    flex-wrap: wrap;
+   align-items: center;
    justify-content: space-around;
    margin-top: 40px;
    margin-bottom: 40px;
@@ -587,17 +561,54 @@ color: white;
 }
 #eduction .educon .edu{
 
-   width: 220px;
-   height: 100px;
+   
+   height: 400px;
+   width: 300px;
+   margin: 10px;
    background-color: rgb(82, 82, 80);
+   position:relative;
+   top: 60px;
    text-align: center;
-   padding: 20px;
-   margin: 20px;
+   box-shadow: 10px 7px 15px black;
+   border-radius: 10px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content:center;
+   border: 2px solid rgb(252, 205, 53);
+
 }
 #eduction .educon .edu h1{
-   color: coral;
+   color: rgb(252, 205, 53);
+   padding-bottom: 30px;
 }
+#eduction .educon .edu p,h4{
+   color: white;
+   font-weight: bolder;
+}
+#eduction .educon .edu .persntage{
+   border-radius: 100%;
+   border: 5px solid rgb(252, 205, 53) ;
+   position: absolute;
+   bottom: 20px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   /* background-color: rgba(17, 0, 255, 0.527) ; */
+   /* box-shadow: inset 4px 10px 10px 4px  blue; */
+   /* box-shadow: 10px 10px 10px black; */
+}
+#eduction .educon .edu .persntage h3{
+   /* padding: 20px; */
+   width: 70px;
+   height: 70px;
+   position: relative;
+   top: 20px;
+   left: 4px;
+   color: white;
+   /* text-align: center; */
 
+}
 
 
 /* Eduction section end  */
@@ -613,18 +624,20 @@ color: white;
 
    width: 100%;
    height: auto;
-   /* background-color: aquamarine; */
    overflow: hidden;
    position: relative;
    margin-top: 30px;
    color: white;
+   background-color: white;
+   padding-bottom: 40px;
+
 }
 #skills >h1{
    font-size: 2rem;
    color: green;
    text-align: center;
    position: relative;
-   top: 50px;
+   top: 70px;
 
 }
 #skills  .container{
@@ -633,17 +646,19 @@ color: white;
    height: auto;
    display: flex;
    flex-wrap: wrap;
-   justify-content: space-around;
+   justify-content:space-around;
    /* align-items: center; */
    margin-bottom: 20px;
+   color: black;
    margin-top: 20px;
+   padding: 30px;
 
 }
 #skills  .container .sk{
-   height: 200px;
+   height:auto;
    width: 400px;
    margin: 10px;
-   background-color: rgb(82, 82, 80);
+   /* background-color: rgb(82, 82, 80); */
    position:relative;
    top: 60px;
    text-align: center;
@@ -656,11 +671,12 @@ color: white;
    font-size: 1rem;
 }
 #skills  .container .sk p{
-   display:-webkit-box;
+   /* display:-webkit-box;
    -webkit-line-clamp: 4;
    -webkit-box-orient: vertical;
    overflow: hidden;
-   text-align:start;
+   text-align:start; */
+   text-align:start ;
 }
 #skills  .container .sk i{
    color: rgb(51, 255, 0); 
@@ -694,7 +710,7 @@ color: white;
    height: auto;
    background-color: rgb(82, 82, 80);
    position: relative;
-   margin-top: 20px;
+   /* margin-top: 20px; */
    padding-bottom: 20px;
  }
 
